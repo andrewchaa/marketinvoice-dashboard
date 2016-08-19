@@ -11,33 +11,36 @@
     <div style="margin: auto; width: 100%" >
       <div class="row">
         <div class="col-md-12">
-          <input class="form-control" type="text" id="url" style="display: inline; width: 80%"  />
-          <button id="open-url" class="btn btn-primary">Open</button>
+          <input class="form-control" type="text" id="url1" style="display: inline; width: 20%"  /><button id="open-url1" class="btn btn-primary">Open1</button>
+          <input class="form-control" type="text" id="url2" style="display: inline; width: 20%"  /><button id="open-url2" class="btn btn-primary">Open2</button>
+          <input class="form-control" type="text" id="url3" style="display: inline; width: 20%"  /><button id="open-url3" class="btn btn-primary">Open3</button>
+          <input class="form-control" type="text" id="url4" style="display: inline; width: 20%"  /><button id="open-url4" class="btn btn-primary">Open4</button>
           <button class="btn btn-default"><span class="glyphicon glyphicon-move" aria-hidden="true" style="-webkit-app-region: drag"></span></button>
-
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <webview id="content" src="https://marketinvoice.visualstudio.com" autosize="on"
-           style="display: bolck; border: none; height: 100vh; width: 100vw" />
+          <webview id="view1" src="https://google.co.uk" autosize="on" style="display: inline-flex; border: none; height: 50vh; width: 49vw"></webview>
+          <webview id="view2" src="https://google.co.uk" autosize="on" style="display: inline-flex; border: none; height: 50vh; width: 48vw"></webview>
+          <webview id="view3" src="https://google.co.uk" autosize="on" style="display: inline-flex; border: none; height: 50vh; width: 49vw"></webview>
+          <webview id="view4" src="https://google.co.uk" autosize="on" style="display: inline-flex; border: none; height: 50vh; width: 48vw"></webview>
         </div>
       </div
     </div>
   </body>
 
   <script>
-    const webview = document.getElementById('content');
+    const view1 = document.getElementById('view1');
     const url = document.getElementById('url');
-    const open = document.getElementById('open-url');
-    open.addEventListener('click', (e) => {
-      e.preventDefault();
-      webview.loadURL(url.value)
-    });
+    const open1 = document.getElementById('open-url1');
+    const open2 = document.getElementById('open-url2');
+    const open3 = document.getElementById('open-url3');
+    const open4 = document.getElementById('open-url4');
+    open1.addEventListener('click', (e) => { view1.loadURL(url1.value) });
+    open2.addEventListener('click', (e) => { view2.loadURL(url2.value) });
+    open3.addEventListener('click', (e) => { view3.loadURL(url3.value) });
+    open4.addEventListener('click', (e) => { view4.loadURL(url4.value) });
 
-    webview.addEventListener('dom-ready', () => {
-      console.log(webview.getURL());
-    })
 
     require('./renderer.js')
   </script>
