@@ -10,9 +10,10 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 500, frame: false})
+  mainWindow = new BrowserWindow({frame: false})
   // mainWindow = new BrowserWindow({width: 800, height: 600})
   // mainWindow.setMenu(null);
+  mainWindow.maximize();
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   // mainWindow.webContents.openDevTools()
 
