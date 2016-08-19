@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script>window.jQuery = window.$ = module.exports</script>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="row">
+      <form class="form-inline">
+        <input class="form-control" type="text" id="url" style="width: 80%" />
+        <button id="open-url" class="btn btn-primary">Open</button>
+      </form>
+    </div>
+    <div class="row">
+      <webview id="content" src="https://marketinvoice.visualstudio.com" autosize="on"
+       style="display: bolck; border: none; height: 100vh; width: 100vw" />
+    </div
+
+  </body>
+
+  <script>
+    const webview = document.getElementById('content');
+    const url = document.getElementById('url');
+    const open = document.getElementById('open-url');
+    open.addEventListener('click', (e) => {
+      e.preventDefault();
+      webview.loadURL(url.value)
+    });
+
+    webview.addEventListener('dom-ready', () => {
+      console.log(webview.getURL());
+    })
+
+    require('./renderer.js')
+  </script>
+</html>
